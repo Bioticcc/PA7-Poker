@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\",
+  "WorkspaceRootPath": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\func.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\func.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6C65D966-3811-44DF-8451-E8C3755C95BC}|PA7-Poker.vcxproj|solutionrelative:func.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -28,37 +28,35 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "main.c",
-              "DocumentMoniker": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\main.c",
+              "DocumentMoniker": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\main.c",
               "RelativeDocumentMoniker": "main.c",
-              "ToolTip": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\main.c",
+              "ToolTip": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\main.c",
               "RelativeToolTip": "main.c",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-05T19:03:36.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T19:03:36.347Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "func.c",
-              "DocumentMoniker": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\func.c",
+              "DocumentMoniker": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\func.c",
               "RelativeDocumentMoniker": "func.c",
-              "ToolTip": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\func.c",
+              "ToolTip": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\func.c",
               "RelativeToolTip": "func.c",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-04-05T19:03:35.193Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T19:03:35.193Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Header.h",
-              "DocumentMoniker": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\Header.h",
+              "DocumentMoniker": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\Header.h",
               "RelativeDocumentMoniker": "Header.h",
-              "ToolTip": "C:\\Users\\jeezu\\Desktop\\PA-CptS\\PA7-Poker\\Header.h",
+              "ToolTip": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\Header.h",
               "RelativeToolTip": "Header.h",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAEkAAAArAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEcAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-05T19:03:33.378Z",
               "EditorCaption": ""
