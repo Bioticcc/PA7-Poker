@@ -157,6 +157,7 @@ void CardFrequency(Card hand[], int cardFreq[], const char* wFace[]) {
 				break;
 		}
 	}
+	//REMOVE WHEN GAME ACTUALLY IS MADE JUST FOR TESTING
 	for (int i = 0; i < 13; i++) {
 		if (cardFreq[i] >= 1) {
 			printf("%d copies of %s\n", cardFreq[i], wFace[i]);
