@@ -25,3 +25,9 @@ void deal(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card 
 void displayHand(const char* wFace[], const char* wSuit[], Card hand[]);
 void CardFrequency(Card hand[], int CardFreq[], const char* wFace[]);
 void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card hand[]);
+int check_pair(int cardFreq[], char* wFace[]);
+int check_two_pair(int cardFreq[], char* wFace[]);
+int check_trio(int cardFreq[], char* wface[]);
+int check_four(int cardFreq[], char* wface[]);
+int check_house(int cardFreq[], char* wface[]);
+int check_flush(Card hand[]);

@@ -1,2 +1,10 @@
 ﻿  func.c
+  main.c
+  Generating Code...
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(33,44): warning C4090: 'function': different 'const' qualifiers
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(34,44): warning C4090: 'function': different 'const' qualifiers
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(35,48): warning C4090: 'function': different 'const' qualifiers
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(36,48): warning C4090: 'function': different 'const' qualifiers
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(37,44): warning C4090: 'function': different 'const' qualifiers
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\main.c(38,44): warning C4090: 'function': different 'const' qualifiers
   PA7-Poker.vcxproj -> C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\x64\Debug\PA7-Poker.exe

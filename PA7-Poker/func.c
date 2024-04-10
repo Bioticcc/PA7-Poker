@@ -167,3 +167,92 @@ void CardFrequency(Card hand[], int cardFreq[], const char* wFace[]) {
 //checks for combos!
 
 //checks for pair
+int check_pair(int cardFreq[], char* wFace[]) {
+	for (int i = 0; i < 13; i++) {
+		if (cardFreq[i] >= 2) {
+			//printf("\nPair found!");
+			return 1;
+		}
+	}
+	//printf("\nPair not found.");
+	return 0;
+}
+//checks for two pairs
+int check_two_pair(int cardFreq[], char* wFace[]) {
+	int pair1 = 0;
+	int pair2 = 0;
+
+	for (int i = 0; i < 13; i++) {
+		if (cardFreq[i] >= 2) {
+			//finds the first pair
+			pair1 = i;
+			for (int j = 0; j < 13; j++) {
+				if (cardFreq[j] >= 2 && j != pair1) {
+					//finds second pair, ensuring its in a different spot then the first.
+					pair2 = j;
+					//printf("\nDouble pair found!");
+					return 1;
+				}
+			}
+		}
+		
+	}
+	//printf("\nDouble pair not found.");
+	return 0;
+}
+
+//checking for three of a kind! :)
+int check_trio(int cardFreq[], char* wface[]) {
+	for (int i = 0; i < 13; i++) {
+		if (cardFreq[i] >= 3) {
+			//printf("\nThree of a kind found!");
+			return 1;
+		}
+	}
+	//printf("\nNo three of a kind found.");
+	return 0;
+}
+//checking for four of a kind
+int check_four(int cardFreq[], char* wface[]) {
+	for (int i = 0; i < 13; i++) {
+		if (cardFreq[i] >= 4) {
+			//printf("\nFour of a kind found!");
+			return 1;
+		}
+	}
+	printf("\nFour of a kind not found.");
+	return 0;
+}
+
+int check_house(int cardFreq[], char* wface[]) {
+	int pair = 0;
+	int trio = 0;
+	for (int i = 0; i < 13; i++) {
+		if (cardFreq[i] == 2) {
+			pair = i;
+			for (int j = 0; j < 13; j++) {
+				if (cardFreq[j] == 3 && j != pair) {
+					trio = j;
+					printf("\nFull house found!");
+					return 1;
+				}
+			}
+		}
+	}
+	//printf("\nNo full house found.");
+	return 0;
+}
+
+int check_flush(Card hand[]) {
+	int flush = 1;
+	for (int i = 1; i < 5; i++) {
+		//goes through each card in the hand, checking if its suit is the same as the last
+		if (hand[i].suit == hand[0].suit) {
+			flush++;
+		}
+	}
+	if (flush == 5) {
+		printf("\nFlush found!");
+		return 1;
+	}
+}
