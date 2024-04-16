@@ -334,8 +334,8 @@ int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Ca
 		dealer[card2].face = reroll[1].face;
 		dealer[card2].suit = reroll[1].suit;
 
-		dealer[card3].face = reroll[3].face;
-		dealer[card3].suit = reroll[3].suit;
+		dealer[card3].face = reroll[2].face;
+		dealer[card3].suit = reroll[2].suit;
 
 		printf("The dealer, having \"Double pair\", has decided to redraw 3 of his cards.\nNew cards:\n%s of %s\n%s of %s\n%s of %s", wFace[reroll[0].face], wSuit[reroll[0].suit], wFace[reroll[1].face], wSuit[reroll[1].suit], wFace[reroll[2].face], wSuit[reroll[2].suit]);
 		return 1;
@@ -372,16 +372,16 @@ int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Ca
 		dealer[card2].face = reroll[1].face;
 		dealer[card2].suit = reroll[1].suit;
 
-		dealer[card3].face = reroll[3].face;
-		dealer[card3].suit = reroll[3].suit;
+		dealer[card3].face = reroll[2].face;
+		dealer[card3].suit = reroll[2].suit;
 
 		printf("The dealer, having \"Pair\", has decided to redraw 3 of his cards.\nNew cards:\n%s of %s\n%s of %s\n%s of %s\n\n", wFace[reroll[0].face], wSuit[reroll[0].suit], wFace[reroll[1].face], wSuit[reroll[1].suit], wFace[reroll[2].face], wSuit[reroll[2].suit]);
 		return 1;
 	}
 	else {
-		int card1 = dealer[0].face;
-		int card2 = dealer[1].face;
-		int card3 = dealer[2].face;
+		int card1 = 0;
+		int card2 = 0;
+		int card3 = 0;
 
 		dealer[card1].face = reroll[0].face;
 		dealer[card1].suit = reroll[0].suit;
@@ -389,8 +389,8 @@ int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Ca
 		dealer[card2].face = reroll[1].face;
 		dealer[card2].suit = reroll[1].suit;
 
-		dealer[card3].face = reroll[3].face;
-		dealer[card3].suit = reroll[3].suit;
+		dealer[card3].face = reroll[2].face;
+		dealer[card3].suit = reroll[2].suit;
 
 		printf("The dealer, having \"No combo\", has decided to redraw 3 of his cards.\nNew cards:\n%s of %s\n%s of %s\n%s of %s\n\n", wFace[reroll[0].face], wSuit[reroll[0].suit], wFace[reroll[1].face], wSuit[reroll[1].suit], wFace[reroll[2].face], wSuit[reroll[2].suit]);
 		return 1;
@@ -643,6 +643,7 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 	
 	//now that ive decided whos got what when where and how, lets take a peek at what happens when both player and dealer have the same combo!
 	if (PD||c) {
+		/*
 		int highestP = -1;
 		int highestD = -1;
 		//ineffecient way to do it, i know but meh it works
@@ -739,6 +740,40 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 				}
 			}
 		}
+		*/
+		//gotta sort hand first
+		int minI = 0;
+		int maxI = 0;
+		Card temp;
+		//so this should sort the dealers hand!
+		for (int i = 0; i < 5; i++) {
+			minI = i;
+			for (int j = i + 1; j < 5; j++) {
+				if (dealer[j].face <= dealer[minI].face) {
+					minI = j;
+				}
+			}
+			if (minI != i) {
+				temp = dealer[i];
+				dealer[i] = dealer[minI];
+				dealer[minI] = temp;
+			}
+		}
+		//so this should sort the players hand!
+		for (int i = 0; i < 5; i++) {
+			minI = i;
+			for (int j = i + 1; j < 5; j++) {
+				if (player[j].face <= player[minI].face) {
+					minI = j;
+				}
+			}
+			if (minI != i) {
+				temp = player[i];
+				player[i] = player[minI];
+				player[minI] = temp;
+			}
+		}
+		
 	}
 
 
