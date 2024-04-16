@@ -1,14 +1,13 @@
 #include "Header.h"
-void menu() {
-	printf("|-------------------------------------------------------------------------------------|\n");
+int menu(float current_bill) {
+	printf("\x1B[1;33m|-------------------------------------------------------------------------------------|\n");
 	printf("| __        __   _                            _____       ____       _             _  |\n");
 	printf("| \\ \\      / /__| | ___ ___  _ __ ___   ___  |_   _|__   |  _ \\ ___ | | _____ _ __| | |\n");
 	printf("|  \\ \\ /\\ / / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\   | |/ _ \\  | |_) / _ \\| |/ / _ \\ '__| | |\n");
 	printf("|   \\ V  V /  __/ | (_| (_) | | | | | |  __/   | | (_) | |  __/ (_) |   <  __/ |  |_| |\n");
 	printf("|    \\_/\\_/ \\___|_|\\___\\___/|_| |_| |_|\\___|   |_|\\___/  |_|   \\___/|_|\\_\\___|_|  (_) |\n");
-
-	printf("|-------------------------------------------------------------------------------------|\n\n\n");
-	printf("|-----------------------------------------RULES---------------------------------------|\n");
+	printf("|-------------------------------------------------------------------------------------|\x1B[0;37m\n\n\n");
+	printf("\x1B[1;31m|-----------------------------------------RULES---------------------------------------|\n");
 	printf("|1. Begin the game by shuffling (wont worry, we do it for you!) your deck.            |\n");
 	printf("|2. The dealer will give you and itself 5 random cards, of whitch you can reroll 3!   |\n");
 	printf("|3. After you and the dealer finish with your final hand, compare who has the highest |\n");
@@ -16,10 +15,36 @@ void menu() {
 	printf("|4. These combos, are as such: pair, two pairs, three of a kind, four of a kind,      |\n");
 	printf("|   full house, flush, and straight! Each is worth more then the last, and whoever    |\n");
 	printf("|   has the better set of cards wins! Good luck!                                      |\n");
-	printf("|-------------------------------------------------------------------------------------|\n");
+	printf("|-------------------------------------------------------------------------------------|\x1B[0;37m\n\n\n");
 
+	printf("\x1B[1;33m");
+	int wager = 0;
+	int a = 0;
+	printf("|--------WAGER-------->\n");
+	printf("|current pool: $%0.2f    \n", current_bill);
+	printf("|bet: ");
+	scanf("%d", &wager);
+	printf("\n|(1) cash out\n");
+	printf("|(2) continue playing \n");
+	printf("|Enter: ");
+	scanf("%d", &a);
+	if (a == 1) {
+		if(current_bill < 0){
+			printf("\x1B[0;31m");
+			printf("Due to your outstanding balance,\nas per the rules outlined in our contract\nyou will now be employed for work at the casino until you pay off your debt.\n\nWelcome to new south wales, sir. Your home away from home.\n");
+			exit(0);
+		}
+		else if (current_bill >= 0) {
+			printf("\x1B[1;33m");
+			printf("As per our agreement, here are your winnings: $%0.2f\nHave a good night!", current_bill);
+			exit(0);
+		}
+	}
 	system("pause");
 	system("cls");
+	printf("\x1B[0;37m");
+	return wager;
+
 }
 
 
@@ -114,14 +139,21 @@ void deal(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card 
 
 //displays hand
 void displayHand(const char* wFace[], const char* wSuit[], Card handP[], Card handD[]) {
+	printf("\x1B[0;92m");
 	printf("|-----Player-Hand-----|\n");
+	printf("\x1B[0;37m");
+
 	for (int i = 0; i < 5; i++) {
+		printf("\x1B[0;32m");
 		//printf("%5s of %-8s%c\n", wFace[hand[i].face], wSuit[hand[i].suit]);
 		printf("|(%d) %s of %s\n",i+1, wFace[handP[i].face], wSuit[handP[i].suit]);
 	}
+	printf("\x1B[1;31m");
 	printf("|-----Dealer-Hand-----|\n");
 	for (int i = 0; i < 5; i++) {
+		printf("\x1B[1;31m");
 		printf("|(%d) %s of %s\n", i + 1, wFace[handD[i].face], wSuit[handD[i].suit]);
+		printf("\x1B[0;37m");
 	}
 }
 
@@ -133,7 +165,8 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 	int t = 0;
 	int c = 1;
 	int i = 0;
-	printf("\nDo you wish to redraw any of your cards? (y/n): ");
+	printf("\x1B[1;33m");
+	printf("\nDo yo wish to redraw any of your cards? (y/n): ");
 	do {
 		scanf(" %c", &a);
 	} while (a!='y' && a!='Y' && a!='n' && a!='N');
@@ -143,6 +176,7 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 		while (1) {
 			system("cls");
 			displayHand(wFace, wSuit, hand, dealer);
+			printf("\x1B[1;33m");
 			printf("\nPlease choose a card to redraw from your deck (1-5): \n");
 			scanf("%d", &t);
 			switch (t)
@@ -152,39 +186,41 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 				hand[0].face = reroll[i].face;
 				hand[0].suit = reroll[i].suit;
 				printf("New card drawn: %s of %s\n", wFace[reroll[i].face], wSuit[reroll[i].suit]);
-
+				printf("\x1B[0;37m");
 				break;
 			case 2:
 				hand[1].face = reroll[i].face;
 				hand[1].suit = reroll[i].suit;
 				printf("New card drawn: %s of %s\n", wFace[reroll[i].face], wSuit[reroll[i].suit]);
-
+				printf("\x1B[0;37m");
 				break;
 			case 3:
 				hand[2].face = reroll[i].face;
 				hand[2].suit = reroll[i].suit;
 				printf("New card drawn: %s of %s\n", wFace[reroll[i].face], wSuit[reroll[i].suit]);
-
+				printf("\x1B[0;37m");
 				break;
 			case 4:
 				hand[3].face = reroll[i].face;
 				hand[3].suit = reroll[i].suit;
 				printf("New card drawn: %s of %s\n", wFace[reroll[i].face], wSuit[reroll[i].suit]);
-
+				printf("\x1B[0;37m");
 				break;
 			case 5:
 				hand[4].face = reroll[i].face;
 				hand[4].suit = reroll[i].suit;
 				printf("New card drawn: %s of %s\n", wFace[reroll[i].face], wSuit[reroll[i].suit]);
-
+				printf("\x1B[0;37m");
 				break;
 			}
 			i++;
 			if (c != 3) {
+				printf("\x1B[1;33m");
 				printf("Would you like to redraw another card? (y/n): \n");
 				do {
 					scanf(" %c", &b);
 				} while (b != 'y' && b != 'Y' && b != 'n' && b != 'N');
+				printf("\x1B[0;37m");
 				if (b == 'y' || b == 'Y') {
 					c++;
 				}
@@ -197,10 +233,11 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 		}
 	}
 
+
 }
 
 int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card dealer[], Card reroll[], int ComboListD[], int CardFreqD[]) {
-	
+	printf("\x1B[1;31m");
 	int rerolls = 0;
 	//rather then this nonsense from before, im instead just gonna do a shit ton of if statements! yay!
 	if (ComboListD[6] == 1) {
@@ -582,8 +619,10 @@ int check_straight(Card hand[], char* wFace) {
 	}
 }
 //oomparing player to dealers hand
-int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer[]) {
+int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer[], const char* wFace[], const char* wSuit[]) {
 	//first, lets see if anyone has any combos!
+	printf("\x1B[1;33m");
+
 	int a = 0;
 	int b = 0;
 	int c = 0;
@@ -633,7 +672,7 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 		}
 	}
 	if (P == 1) {
-		printf("\nPLAYER WINS!\n"); return 1;
+		printf("\nPLAYER WINS!\n"); return 2;
 	}
 
 	if (D == 1) {
@@ -643,104 +682,6 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 	
 	//now that ive decided whos got what when where and how, lets take a peek at what happens when both player and dealer have the same combo!
 	if (PD||c) {
-		/*
-		int highestP = -1;
-		int highestD = -1;
-		//ineffecient way to do it, i know but meh it works
-		int SecondHighestP = -1;
-		int SecondHighestD = -1;
-		int ThirdHighestP = -1;
-		int ThirdHighestD = -1;
-		int FourthHighestP = -1;
-		int FourthHighestD = -1;
-		int FifthHighestP = -1;
-		int FifthHighestD = -1;
-
-		for (int i = 0; i < 5; i++) {
-			//gotta look through each card in the player and dealer hands, determinig who has the higher card value for their single BEST card
-			if (player[i].face > highestP) { 
-				FifthHighestP = FourthHighestP;
-				FourthHighestP = ThirdHighestP;
-				ThirdHighestP = SecondHighestP;
-				SecondHighestP = highestP;
-				highestP = player[i].face; 
-			}
-			else if (player[i].face > SecondHighestP && player[i].face != highestP) {
-				FifthHighestP = FourthHighestP;
-				FourthHighestP = ThirdHighestP;
-				ThirdHighestP = SecondHighestP;
-				SecondHighestP = player[i].face;
-			}
-			else if (player[i].face > ThirdHighestP && player[i].face != SecondHighestP) {
-				FifthHighestP = FourthHighestP;
-				FourthHighestP = ThirdHighestP;
-				ThirdHighestP = player[i].face;
-			}
-			else if (player[i].face > FourthHighestP && player[i].face != ThirdHighestP) {
-				FifthHighestP = FourthHighestP;
-				FourthHighestP = player[i].face;
-			}
-			else if (player[i].face > FifthHighestP && player[i].face != FourthHighestP) {
-				FifthHighestP = player[i].face;
-			}
-		}
-		for (int i = 0; i < 5; i++) {
-			//gotta look through each card in the player and dealer hands, determinig who has the higher card value for their single BEST card
-			if (dealer[i].face > highestD) {
-				FifthHighestD = FourthHighestD;
-				FourthHighestD = ThirdHighestD;
-				ThirdHighestD = SecondHighestD;
-				SecondHighestD = highestD;
-				highestD = dealer[i].face;
-			}
-			else if (dealer[i].face > SecondHighestD && dealer[i].face != highestD) {
-				FifthHighestD = FourthHighestD;
-				FourthHighestD = ThirdHighestD;
-				ThirdHighestD = SecondHighestD;
-				SecondHighestD = dealer[i].face;
-			}
-			else if (dealer[i].face > ThirdHighestD && dealer[i].face != SecondHighestD) {
-				FifthHighestD = FourthHighestD;
-				FourthHighestD = ThirdHighestD;
-				ThirdHighestD = dealer[i].face;
-			}
-			else if (dealer[i].face > FourthHighestD && dealer[i].face != ThirdHighestD) {
-				FifthHighestD = FourthHighestD;
-				FourthHighestD = dealer[i].face;
-			}
-			else if (dealer[i].face > FifthHighestD && dealer[i].face != FourthHighestD) {
-				FifthHighestD = dealer[i].face;
-			}
-		}
-		
-
-		if (highestP > highestD) printf("\nPLAYER WINS! by highest card\n");
-		if (highestD > highestP) printf("\nDEALER WINS! by highest card\n");
-		if (highestP == highestD) {
-			//sigh
-			if (SecondHighestP > SecondHighestD) printf("\nPLAYER WINS! by highest card\n");
-			if (SecondHighestD > SecondHighestP) printf("\nDEALER WINS! by highest card\n");
-			if (SecondHighestP == SecondHighestD) {
-				//really?? what are the odds >:(
-				if (ThirdHighestP > ThirdHighestD) printf("\nPLAYER WINS! by highest card\n");
-				if (ThirdHighestD > ThirdHighestP) printf("\nDEALER WINS! by highest card\n");
-				if (ThirdHighestP == ThirdHighestD) {
-					//gonna commit some crimes if this continues
-					if (FourthHighestP > FourthHighestD) printf("\nPLAYER WINS! by highest card\n");
-					if (FourthHighestD > FourthHighestP) printf("\nDEALER WINS! by highest card\n");
-					if (FourthHighestP == FourthHighestD) {
-						//bruh.
-						if (FifthHighestP > FifthHighestD) printf("\nPLAYER WINS! by highest card\n");
-						if (FifthHighestD > FifthHighestP) printf("\nDEALER WINS! by highest card\n");
-						if (FifthHighestP == FifthHighestD) {
-							//i didnt think it possible, but somehow you have an identical hand to the dealer! congrats! (internal screaming)
-							printf("\nSECRET ENDING! - NO ONE WINS! Congratulations, you both had identical hands!\nNow aint that somethin? bit wacky, if you ask me O>O\nAnyway, congrats! Now go buy a lottery ticket or something ;3\n");
-						}	
-					}
-				}
-			}
-		}
-		*/
 		//gotta sort hand first
 		int minI = 0;
 		int maxI = 0;
@@ -773,8 +714,84 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 				player[minI] = temp;
 			}
 		}
+		//now that they are sorted compare their 4th indexes to each other
+		//first check the highest card in their deck, hand[4]
+		if (dealer[4].face > player[4].face) {
+			printf("Dealer has the highest card!\nWinning card: %s of %s\n", wFace[dealer[4].face], wSuit[dealer[4].suit]);
+			return 1;
+		}
+		else if (dealer[4].face < player[4].face) {
+			printf("Player has the highest card!\nWinning card: %s of %s\n", wFace[player[4].face], wSuit[player[4].suit]);
+			return 2;
+		}
+		else if (dealer[4].face == player[4].face) {
+			if (dealer[3].face > player[3].face) {
+				printf("Dealer has the highest card!\nWinning card: %s of %s\n", wFace[dealer[3].face], wSuit[dealer[3].suit]);
+				return 1;
+			}
+			else if (dealer[3].face < player[3].face) {
+				printf("Player has the highest card!\nWinning card: %s of %s\n", wFace[player[3].face], wSuit[player[3].suit]);
+				return 2;
+			}
+			else if (dealer[3].face == player[3].face) {
+				if (dealer[2].face > player[2].face) {
+					printf("Dealer has the highest card!\nWinning card: %s of %s\n", wFace[dealer[2].face], wSuit[dealer[2].suit]);
+					return 1;
+				}
+				else if (dealer[2].face < player[2].face) {
+					printf("Player has the highest card!\nWinning card: %s of %s\n", wFace[player[2].face], wSuit[player[2].suit]);
+					return 2;
+				}
+				else if (dealer[2].face == player[2].face) {
+					if (dealer[1].face > player[1].face) {
+						printf("Dealer has the highest card!\nWinning card: %s of %s\n", wFace[dealer[1].face], wSuit[dealer[1].suit]);
+						return 1;
+					}
+					else if (dealer[1].face < player[1].face) {
+						printf("Player has the highest card!\nWinning card: %s of %s\n", wFace[player[1].face], wSuit[player[1].suit]);
+						return 2;
+					}
+					else if (dealer[1].face == player[0].face) {
+						if (dealer[0].face > player[0].face) {
+							printf("Dealer has the highest card!\nWinning card: %s of %s\n", wFace[dealer[0].face], wSuit[dealer[0].suit]);
+							return 1;
+						}
+						else if (dealer[0].face < player[0].face) {
+							printf("Player has the highest card!\nWinning card: %s of %s\n", wFace[player[0].face], wSuit[player[0].suit]);
+							return 2;
+						}
+						else if (dealer[0].face == player[0].face) {
+							printf("Somehow, the dealer and player have identical hands! congratulations!\nYou have unlocked the secret ending! WAHOO!\n");
+							return 3;
+						}
+					}
+				}
+			}
+		}
 		
 	}
 
 
+}
+
+
+
+//betting function! makes the game more fun :)
+int betting(int wager, int victor) {
+	float bill = 0;
+	if (victor == 1) {
+		//dealer won, so total pool is deacreased by wager * 1.10
+		bill =  -wager;
+		return bill;
+	}
+	else if (victor == 2) {
+		//player won, so total pool is increased by wager 
+		bill = (float)wager * 1.3;
+		return bill;
+	}
+	else if (victor == 3) {
+		//identical hands, become god ig
+		bill = 1000000;
+		return bill;
+	}
 }

@@ -1,8 +1,14 @@
 ﻿  func.c
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(141,38): warning C4098: 'redrawCards': 'void' function returning a value
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(192,8): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(196,31): warning C4098: 'redrawCards': 'void' function returning a value
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(214,14): warning C4047: '=': 'Card *' differs in levels of indirection from 'int'
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(604,21): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
-C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(745,1): warning C4715: 'compare_hands': not all control paths return a value
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(174,38): warning C4098: 'redrawCards': 'void' function returning a value
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(228,8): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(232,31): warning C4098: 'redrawCards': 'void' function returning a value
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(251,14): warning C4047: '=': 'Card *' differs in levels of indirection from 'int'
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(643,21): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(784,11): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(785,10): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(789,23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(790,10): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(795,10): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(797,1): warning C4715: 'betting': not all control paths return a value
+C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\func.c(775,1): warning C4715: 'compare_hands': not all control paths return a value
   PA7-Poker.vcxproj -> C:\Users\jeezu\Documents\GitHub\PA7-Poker\PA7-Poker\x64\Debug\PA7-Poker.exe
