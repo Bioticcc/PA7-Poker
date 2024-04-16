@@ -1,7 +1,9 @@
 #include "Header.h"
 
-
-
+/*
+CURRENT PROBLEMS
+- For somereason it doesnt recognize ACE as a high value card? seems to think its at the bottom actually.
+*/
 
 int main(void)
 {
@@ -29,13 +31,12 @@ int main(void)
 
 		//allows for player and dealer to reroll up to 3 of their cards
 		redrawCards(deck, face, suit, player, dealer, possibleCardRerollsP);
+		printf("\x1B[1;31m");
 		printf("\nDEALERS TURN TO REDRAW CARDS...\n");
 		
 		
-		printf("\x1B[1;31m");
 		printf("\n-------DEALER CARD FREQUENCIES-------\n");
 		CardFrequency(dealer, cardFreqD, face);
-		printf("\x1B[0;37m");
 		ComboListP[0] = check_pair(cardFreqP, face);
 		ComboListD[0] = check_pair(cardFreqD, face);
 		ComboListP[1] = check_two_pair(cardFreqP, face);
@@ -54,6 +55,8 @@ int main(void)
 		DealerAI(deck, face, suit, dealer, possibleCardRerollsD, ComboListD, cardFreqD);
 		system("pause");
 		system("cls");
+		printf("\x1B[0;37m");
+
 		displayHand(face, suit, player, dealer);
 
 		//quickly reseting dealers frequency array

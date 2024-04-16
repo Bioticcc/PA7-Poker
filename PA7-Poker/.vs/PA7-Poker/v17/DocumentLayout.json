@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "main.c",
               "ToolTip": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\main.c",
               "RelativeToolTip": "main.c",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-04-05T19:03:36.347Z",
               "IsPinned": true,
@@ -46,7 +46,7 @@
               "RelativeDocumentMoniker": "func.c",
               "ToolTip": "C:\\Users\\jeezu\\Documents\\GitHub\\PA7-Poker\\PA7-Poker\\func.c",
               "RelativeToolTip": "func.c",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACYAAAA6AAAA",
+              "ViewState": "AQIAAOQAAAAAAAAAAAAYwPEAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
               "WhenOpened": "2024-04-05T19:03:35.193Z",
               "IsPinned": true,
@@ -62,8 +62,7 @@
               "RelativeToolTip": "Header.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-05T19:03:33.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T19:03:33.378Z"
             }
           ]
         }

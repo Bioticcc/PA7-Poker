@@ -170,9 +170,9 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 	do {
 		scanf(" %c", &a);
 	} while (a!='y' && a!='Y' && a!='n' && a!='N');
-
-	if (a == 'n' || a == 'N') { return 0; }
-	else {
+	system("cls");
+	displayHand(wFace, wSuit, hand, dealer);
+	if (a == 'Y' || a == 'y'){
 		while (1) {
 			system("cls");
 			displayHand(wFace, wSuit, hand, dealer);
@@ -224,13 +224,35 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 				if (b == 'y' || b == 'Y') {
 					c++;
 				}
-				else if (b=='N' || b=='n'){
+				else if (b == 'N' || b == 'n') {
 					c == 3;
+					printf("\x1B[1;33m");
+					system("cls");
+					displayHand(wFace, wSuit, hand, dealer);
+					printf("\x1B[1;31m");
+					system("pause");
+					printf("\x1B[0;37m");
 					break;
 				}
 			}
-			else if (c == 3) { return 1; }
+			else if (c == 3) {
+				printf("\x1B[1;33m");
+				system("cls");
+				displayHand(wFace, wSuit, hand, dealer);
+				printf("\x1B[1;31m");
+				system("pause");
+				printf("\x1B[0;37m");
+				return 1; }
 		}
+
+	}
+	if (a == 'n' || a == 'N') {
+		printf("\x1B[1;33m");
+		system("cls");
+		displayHand(wFace, wSuit, hand, dealer);
+		system("pause");
+		printf("\x1B[0;37m");
+		
 	}
 
 
