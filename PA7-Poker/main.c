@@ -34,6 +34,7 @@ int main(void)
 		printf("\x1B[1;31m");
 		printf("\nDEALERS TURN TO REDRAW CARDS...\n");
 		
+
 		
 		printf("\n-------DEALER CARD FREQUENCIES-------\n");
 		CardFrequency(dealer, cardFreqD, face);
@@ -44,9 +45,9 @@ int main(void)
 		ComboListP[2] = check_trio(cardFreqP, face);
 		ComboListD[2] = check_trio(cardFreqD, face);
 		ComboListP[6] = check_four(cardFreqP, face);
-		ComboListD[6] = check_four(cardFreqP, face);
+		ComboListD[6] = check_four(cardFreqD, face);
 		ComboListP[5] = check_house(cardFreqP, face);
-		ComboListD[5] = check_house(cardFreqP, face);
+		ComboListD[5] = check_house(cardFreqD, face);
 		ComboListP[4] = check_flush(player);
 		ComboListD[4] = check_flush(dealer);
 		ComboListP[3] = check_straight(player, face);
@@ -56,6 +57,18 @@ int main(void)
 		system("pause");
 		system("cls");
 		printf("\x1B[0;37m");
+
+		//FOR TESTING PURPOSES, LETS ME MAKE THE HANDS WHATEVER I WANT
+		player[0].face = 1;
+		player[0].suit = 0;
+		player[1].face = 1;
+		player[1].suit = 1;
+		player[2].face = 0;
+		player[2].suit = 0;
+		player[3].face = 0;
+		player[3].suit = 1;
+		player[4].face = 0;
+		player[4].suit = 2;
 
 		displayHand(face, suit, player, dealer);
 
@@ -79,14 +92,18 @@ int main(void)
 		ComboListP[2] = check_trio(cardFreqP, face);
 		ComboListD[2] = check_trio(cardFreqD, face);
 		ComboListP[6] = check_four(cardFreqP, face);
-		ComboListD[6] = check_four(cardFreqP, face);
+		ComboListD[6] = check_four(cardFreqD, face);
 		ComboListP[5] = check_house(cardFreqP, face);
-		ComboListD[5] = check_house(cardFreqP, face);
+		ComboListD[5] = check_house(cardFreqD, face);
 		ComboListP[4] = check_flush(player);
 		ComboListD[4] = check_flush(dealer);
 		ComboListP[3] = check_straight(player, face);
 		ComboListD[3] = check_straight(dealer, face);
 		int victor = 0;
+
+		for (int i = 0; i < 7; i++) {
+			printf("\n%d    -    %d\n", ComboListP[i], ComboListD[i]);
+		}
 		//comparing hands to decide victor of round
 		victor = compare_hands(ComboListP, ComboListD, player, dealer, face, suit);
 		current_bill += betting(wager, victor);
