@@ -157,7 +157,6 @@ void displayHand(const char* wFace[], const char* wSuit[], Card handP[], Card ha
 	}
 }
 
-
 //redraws cards
 void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card hand[], Card dealer[], Card reroll[]) {
 	char a = '\0';
@@ -250,6 +249,7 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 		printf("\x1B[1;33m");
 		system("cls");
 		displayHand(wFace, wSuit, hand, dealer);
+		printf("\x1B[1;31m");
 		system("pause");
 		printf("\x1B[0;37m");
 		
@@ -258,6 +258,7 @@ void redrawCards(const int wDeck[][13], const char* wFace[], const char* wSuit[]
 
 }
 
+//dealer ai 
 int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Card dealer[], Card reroll[], int ComboListD[], int CardFreqD[]) {
 	printf("\x1B[1;31m");
 	int rerolls = 0;
@@ -457,9 +458,6 @@ int DealerAI(const int wDeck[][13], const char* wFace[], const char* wSuit[], Ca
 	
 }
 
-
-
-
 //checks frequency of each card appearing
 void CardFrequency(Card hand[], int cardFreq[], const char* wFace[]) {
 	for (int i = 0; i < 5; i++) { //iterating through every card in the hand, incrementing its corresponding index in card Freq by 1 every times its found.
@@ -513,7 +511,7 @@ void CardFrequency(Card hand[], int cardFreq[], const char* wFace[]) {
 		}
 	}
 }
-//checks for combos!
+
 //checks for pair
 int check_pair(int cardFreq[], char* wFace[]) {
 	for (int i = 0; i < 13; i++) {
@@ -525,6 +523,7 @@ int check_pair(int cardFreq[], char* wFace[]) {
 	//printf("\nPair not found.");
 	return 0;
 }
+
 //checks for two pairs
 int check_two_pair(int cardFreq[], char* wFace[]) {
 	int pair1 = 0;
@@ -548,6 +547,7 @@ int check_two_pair(int cardFreq[], char* wFace[]) {
 	//printf("\nDouble pair not found.");
 	return 0;
 }
+
 //checking for three of a kind! :)
 int check_trio(int cardFreq[], char* wface[]) {
 	for (int i = 0; i < 13; i++) {
@@ -559,6 +559,7 @@ int check_trio(int cardFreq[], char* wface[]) {
 	//printf("\nNo three of a kind found.");
 	return 0;
 }
+
 //checking for four of a kind
 int check_four(int cardFreq[], char* wface[]) {
 	for (int i = 0; i < 13; i++) {
@@ -570,6 +571,7 @@ int check_four(int cardFreq[], char* wface[]) {
 	//printf("\nFour of a kind not found.");
 	return 0;
 }
+
 //checking for full house
 int check_house(int cardFreq[], char* wface[]) {
 	int pair = 0;
@@ -578,7 +580,7 @@ int check_house(int cardFreq[], char* wface[]) {
 		if (cardFreq[i] == 2) {
 			pair = i;
 			for (int j = 0; j < 13; j++) {
-				if (cardFreq[j] == 3 && j != pair) {
+				if (cardFreq[j] == 3) {
 					trio = j;
 					//printf("\nFull house found!");
 					return 1;
@@ -589,6 +591,7 @@ int check_house(int cardFreq[], char* wface[]) {
 	//printf("\nNo full house found.");
 	return 0;
 }
+
 //checking for flush
 int check_flush(Card hand[]) {
 	int flush = 1;
@@ -604,6 +607,7 @@ int check_flush(Card hand[]) {
 	}
 	else { return 0;  }
 }
+
 //checking for straight
 int check_straight(Card hand[], char* wFace) {
 	//gotta sort hand first
@@ -640,6 +644,7 @@ int check_straight(Card hand[], char* wFace) {
 		return 0;
 	}
 }
+
 //oomparing player to dealers hand
 int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer[], const char* wFace[], const char* wSuit[]) {
 	//first, lets see if anyone has any combos!
@@ -795,8 +800,6 @@ int compare_hands(int ComboListP[], int ComboListD[], Card player[], Card dealer
 
 
 }
-
-
 
 //betting function! makes the game more fun :)
 int betting(int wager, int victor) {
